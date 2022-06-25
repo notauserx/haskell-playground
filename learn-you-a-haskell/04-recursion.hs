@@ -55,7 +55,7 @@ qsort (x:xs) =
         rightPart  = [a | a <- xs, a > x]
     in qsort leftPart ++ [x] ++ qsort rightPart
 
--- qsort [10,2,5,3,1,6,7,4,2,3,4,8,9] 
+-- qsort [10,2,5,3,1,6,7,4,2,3,4,8,9]
 
 
 
