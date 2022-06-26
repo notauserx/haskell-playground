@@ -1,0 +1,47 @@
+{-
+
+A Haskell module is a collection of related functions, types and typeclasses. A Haskell program is a collection of modules where the main module loads up the 
+other modules and then uses the functions defined in them to do something. 
+
+Having code split up into several modules has quite a lot of advantages. If a 
+module is generic enough, the functions it exports can be used in a multitude of 
+different programs.
+
+The syntax for importing modules in a Haskell script is import <module name>.
+This must be done before defining any functions, so imports are usually done at 
+the top of the file.
+
+One script can, of course, import several modules. Just put each import 
+statement into a separate line. 
+
+-}
+
+import Data.List  
+  
+numUniques :: (Eq a) => [a] -> Int  
+numUniques = length . nub  
+
+-- When you do import Data.List, all the functions that Data.List exports become 
+-- available in the global namespace.
+
+-- You can also put the functions of modules into the global namespace when 
+-- using GHCI.
+
+-- ghci> :m + Data.List
+-- or
+-- ghci> :m + Data.List Data.Map Data.Set  
+
+-- import Data.List (nub, sort)
+-- import Data.List hiding (nub)  
+
+-- To deal with name clashes we can use qualified imports
+
+-- import qualified Data.Map
+-- to reference Data.Map's filter function, we have to use Data.Map.filter.
+-- import qualified Data.Map as M
+-- to reference Data.Map's filter function, we just use M.filter.
+
+
+{-
+
+-}
